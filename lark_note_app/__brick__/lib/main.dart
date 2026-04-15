@@ -25,7 +25,7 @@ import 'src/features/notes/domain/repositories/note_repository_impl.dart';
 import 'src/features/notes/data/datasources/note_remote_source.dart';
 import 'src/features/notes/data/datasources/note_local_source.dart';
 {{#has_network}}import 'src/core/network/api_client.dart';
-import 'src/core/env/app_env.dart';{{/has_network}}{{/state_management_provider}}
+import 'src/core/env/env_config.dart';{{/has_network}}{{/state_management_provider}}
 
 {{#logging_logging}}final _log = Logger('{{project_name.pascalCase()}}');{{/logging_logging}}
 {{#logging_logger}}final logger = Logger();{{/logging_logger}}
@@ -77,7 +77,7 @@ class {{project_name.pascalCase()}} extends StatelessWidget {
         ChangeNotifierProvider(
           create: (_) => NotesNotifier(
             repository: NoteRepositoryImpl(
-              remoteSource: NoteRemoteSourceImpl({{#has_network}}apiClient: ApiClient(baseUrl: AppEnv.apiBaseUrl){{/has_network}}),
+              remoteSource: NoteRemoteSourceImpl({{#has_network}}apiClient: ApiClient(baseUrl: EnvConfig.apiBaseUrl){{/has_network}}),
               localSource: NoteLocalSourceImpl(),
             ),
           ),

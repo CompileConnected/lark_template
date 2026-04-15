@@ -25,8 +25,6 @@ void run(HookContext context) {
     'lib/src/core/network/api_client.dart': vars['network_none'] == true,
     // Storage
     'lib/src/core/storage/local_storage_service.dart': vars['storage_none'] == true,
-    // Env
-    'lib/src/core/env/env_config.dart': vars['env_none'] == true,
     // Logging
     'lib/src/core/logging/app_logger.dart': vars['logging_none'] == true,
     // DI

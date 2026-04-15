@@ -2,7 +2,7 @@
 {{#network_http}}import '../../core/network/api_client.dart';{{/network_http}}
 {{#network_dio}}import '../../core/network/api_client.dart';{{/network_dio}}
 {{#network_rhttp}}import '../../core/network/api_client.dart';{{/network_rhttp}}
-{{#has_network}}import '../../core/env/app_env.dart';{{/has_network}}
+{{#has_network}}import '../../core/env/env_config.dart';{{/has_network}}
 import '../../features/notes/data/datasources/note_local_source.dart';
 import '../../features/notes/data/datasources/note_remote_source.dart';
 import '../../features/notes/domain/repositories/note_repository_impl.dart';
@@ -13,15 +13,15 @@ final getIt = GetIt.instance;
 void setupInjection() {
   {{#network_http}}// Network
   getIt.registerLazySingleton<ApiClient>(
-    () => ApiClient(baseUrl: AppEnv.apiBaseUrl),
+    () => ApiClient(baseUrl: EnvConfig.apiBaseUrl),
   );{{/network_http}}
   {{#network_dio}}// Network
   getIt.registerLazySingleton<ApiClient>(
-    () => ApiClient(baseUrl: AppEnv.apiBaseUrl),
+    () => ApiClient(baseUrl: EnvConfig.apiBaseUrl),
   );{{/network_dio}}
   {{#network_rhttp}}// Network
   getIt.registerLazySingleton<ApiClient>(
-    () => ApiClient(baseUrl: AppEnv.apiBaseUrl),
+    () => ApiClient(baseUrl: EnvConfig.apiBaseUrl),
   );{{/network_rhttp}}
 
   // Data sources
