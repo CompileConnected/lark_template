@@ -16,7 +16,7 @@ import '../../data/datasources/note_local_source.dart';
 import '../../data/datasources/note_remote_source.dart';
 import '../widgets/note_card.dart';
 {{#state_management_none}}import 'notes_notifier.dart';{{/state_management_none}}
-{{#state_management_change_notifier}}import '../notifiers/notes_notifier.dart';{{/state_management_change_notifier}}
+{{#state_management_provider}}import '../notifiers/notes_notifier.dart';{{/state_management_provider}}
 {{#state_management_riverpod}}import '../providers/notes_provider.dart';{{/state_management_riverpod}}
 {{#state_management_bloc}}import '../bloc/notes_bloc.dart';{{/state_management_bloc}}
 {{#state_management_getx}}import '../controllers/notes_controller.dart';{{/state_management_getx}}
@@ -538,57 +538,4 @@ class _NotesPageState extends State<NotesPage> {
 }
 {{/state_management_none}}
 
-{{#state_management_change_notifier}}
-class NotesPage extends StatelessWidget {
-  const NotesPage({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    final notifier = context.watch<NotesNotifier>();
-
-    return {{#ui_toolkit_material}}Scaffold(
-      appBar: AppBar(title: const Text('Notes')),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => _navigateToDetail(context),
-        child: const Icon(Icons.add),
-      ),
-      body: notifier.isLoading
-          ? const Center(child: CircularProgressIndicator())
-          : notifier.error != null
-              ? Center(child: Text('Error: ${notifier.error}'))
-              : notifier.notes.isEmpty
-                  ? const Center(child: Text('No notes yet'))
-                  : ListView.builder(
-                      itemCount: notifier.notes.length,
-                      itemBuilder: (context, index) => NoteCard(
-                        note: notifier.notes[index],
-                        onTap: () => _navigateToDetail(context, note: notifier.notes[index]),
-                      ),
-                    ),
-    );{{/ui_toolkit_material}}{{#ui_toolkit_shadcn}}Scaffold(
-      appBar: AppBar(title: const Text('Notes')),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => _navigateToDetail(context),
-        child: const Icon(Icons.add),
-      ),
-      body: notifier.isLoading
-          ? const Center(child: CircularProgressIndicator())
-          : notifier.error != null
-              ? Center(child: Text('Error: ${notifier.error}'))
-              : notifier.notes.isEmpty
-                  ? const Center(child: Text('No notes yet'))
-                  : ListView.builder(
-                      itemCount: notifier.notes.length,
-                      itemBuilder: (context, index) => NoteCard(
-                        note: notifier.notes[index],
-                        onTap: () => _navigateToDetail(context, note: notifier.notes[index]),
-                      ),
-                    ),
-    );{{/ui_toolkit_shadcn}}
-  }
-
-  void _navigateToDetail(BuildContext context, {Note? note}) {
-    context.push('/detail${note != null ? '/${note.id}' : ''}');
-  }
-}
-{{/state_management_change_notifier}}

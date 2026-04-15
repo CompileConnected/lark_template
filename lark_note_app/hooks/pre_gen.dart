@@ -151,7 +151,7 @@ void run(HookContext context) {
   vars['has_storage'] = localStorage != 'none';
 
   // === Computed: uses NotesNotifier (change_notifier or provider) ===
-  vars['uses_notes_notifier'] = sm == 'change_notifier' || sm == 'provider';
+  vars['uses_notes_notifier'] = sm == 'provider';
 
   context.vars = vars;
 }
