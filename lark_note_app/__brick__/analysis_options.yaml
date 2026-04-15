@@ -1,0 +1,7 @@
+{{#linting_flutter_lints}}include: package:flutter_lints/flutter.yaml{{/linting_flutter_lints}}{{#linting_very_good_analysis}}include: package:very_good_analysis/analysis_options.yaml{{/linting_very_good_analysis}}
+
+linter:
+  rules:
+{{#linting_very_good_analysis}}
+    public_member_api_docs: false
+{{/linting_very_good_analysis}}

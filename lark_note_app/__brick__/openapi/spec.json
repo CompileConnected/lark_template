@@ -1,0 +1,9 @@
+{{#api_openapi}}{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "{{project_name}} API",
+    "version": "1.0.0"
+  },
+  "paths": {}
+}
+{{/api_openapi}}

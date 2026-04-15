@@ -1,0 +1,156 @@
+name: {{project_name.snakeCase()}}
+description: "A new Flutter project."
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.7.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+{{#ui_toolkit_material}}
+  cupertino_icons: ^1.0.8
+{{/ui_toolkit_material}}
+{{#state_management_provider}}
+  provider: ^6.1.0
+{{/state_management_provider}}
+{{#state_management_riverpod}}
+  flutter_riverpod: ^2.6.0
+  riverpod_annotation: ^2.3.0
+  freezed_annotation: ^2.4.0
+  json_annotation: ^4.9.0
+{{/state_management_riverpod}}
+{{#state_management_bloc}}
+  flutter_bloc: ^9.0.0
+  bloc: ^9.0.0
+  freezed_annotation: ^2.4.0
+  json_annotation: ^4.9.0
+{{/state_management_bloc}}
+{{#state_management_getx}}
+  get: ^4.6.0
+{{/state_management_getx}}
+{{#state_management_mobx}}
+  mobx: ^2.3.0
+  flutter_mobx: ^2.2.0
+{{/state_management_mobx}}
+{{#state_management_signals}}
+  signals_flutter: ^5.5.0
+{{/state_management_signals}}
+  go_router: ^14.6.0
+{{#di_get_it}}
+  get_it: ^8.0.0
+{{/di_get_it}}
+{{#di_injectable}}
+  get_it: ^8.0.0
+  injectable: ^2.4.0
+{{/di_injectable}}
+{{#network_http}}
+  http: ^1.2.0
+{{/network_http}}
+{{#network_dio}}
+  dio: ^5.7.0
+{{/network_dio}}
+{{#network_rhttp}}
+  rhttp: ^0.16.0
+{{/network_rhttp}}
+{{#storage_shared_preferences}}
+  shared_preferences: ^2.3.0
+{{/storage_shared_preferences}}
+{{#storage_hive_ce}}
+  hive_ce: ^2.10.0
+  hive_ce_flutter: ^2.3.0
+{{/storage_hive_ce}}
+{{#storage_isar_community}}
+  isar_community: ^3.3.0
+  isar_community_flutter_libs: ^3.3.0
+{{/storage_isar_community}}
+{{#storage_drift}}
+  drift: ^2.22.0
+  sqlite3_flutter_libs: ^0.5.0
+{{/storage_drift}}
+{{#ui_toolkit_shadcn}}
+  shadcn_flutter: ^0.0.52
+{{/ui_toolkit_shadcn}}
+{{#env_flutter_dotenv}}
+  flutter_dotenv: ^6.0.0
+{{/env_flutter_dotenv}}
+{{#env_dotenv}}
+  dotenv: ^4.2.0
+{{/env_dotenv}}
+{{#logging_logging}}
+  logging: ^1.3.0
+{{/logging_logging}}
+{{#logging_logger}}
+  logger: ^2.5.0
+{{/logging_logger}}
+{{#attach_logger_to_http_dio}}
+  dio_logger_plus: ^1.0.0
+{{/attach_logger_to_http_dio}}
+{{#db_debugger_drift_db_viewer}}
+  drift_db_viewer: ^2.0.0
+{{/db_debugger_drift_db_viewer}}
+{{#api_openapi}}
+  openapi_generator_annotations: ^6.1.0
+  json_annotation: ^4.9.0
+{{#openapi_dart}}
+  http: ^1.2.0
+{{/openapi_dart}}
+{{#openapi_dio}}
+  dio: ^5.7.0
+{{/openapi_dio}}
+{{#openapi_dio_alt}}
+  dio: ^5.7.0
+{{/openapi_dio_alt}}
+{{/api_openapi}}
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+{{#linting_flutter_lints}}
+  flutter_lints: ^5.0.0
+{{/linting_flutter_lints}}
+{{#linting_very_good_analysis}}
+  very_good_analysis: ^6.0.0
+{{/linting_very_good_analysis}}
+{{#state_management_riverpod}}
+  riverpod_generator: ^2.4.0
+  build_runner: ^2.4.0
+  freezed: ^2.5.0
+  json_serializable: ^6.8.0
+{{/state_management_riverpod}}
+{{#state_management_bloc}}
+  bloc_test: ^9.0.0
+  build_runner: ^2.4.0
+  freezed: ^2.5.0
+  json_serializable: ^6.8.0
+{{/state_management_bloc}}
+{{#state_management_mobx}}
+  mobx_codegen: ^2.6.0
+  build_runner: ^2.4.0
+{{/state_management_mobx}}
+{{#di_injectable}}
+  injectable_generator: ^2.6.0
+  build_runner: ^2.4.0
+{{/di_injectable}}
+{{#storage_isar_community}}
+  isar_community_generator: ^3.3.0
+  build_runner: ^2.4.0
+{{/storage_isar_community}}
+{{#storage_drift}}
+  drift_dev: ^2.22.0
+  build_runner: ^2.4.0
+{{/storage_drift}}
+{{#api_openapi}}
+  openapi_generator: ^6.1.0
+{{#openapi_dio}}
+  build_runner: ^2.4.0
+{{/openapi_dio}}
+{{/api_openapi}}
+
+flutter:
+  uses-material-design: true
+{{#env_flutter_dotenv}}
+  assets:
+    - .env
+{{/env_flutter_dotenv}}

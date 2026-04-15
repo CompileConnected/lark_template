@@ -1,0 +1,165 @@
+name: lark_note_app
+description: A note-taking Flutter app template with repository pattern, configurable via Lark wizard options.
+
+version: 0.1.0+1
+
+environment:
+  mason: ^0.1.2
+
+vars:
+  # === Project Setup (Step 1) ===
+  project_name:
+    type: string
+    description: The name of the generated Flutter project
+    default: my_app
+    prompt: Project name?
+  org_name:
+    type: string
+    description: Reverse domain name for the project
+    default: com.example
+    prompt: Organization?
+  platform_android:
+    type: boolean
+    description: Include Android platform
+    default: true
+    prompt: Include Android?
+  platform_ios:
+    type: boolean
+    description: Include iOS platform
+    default: true
+    prompt: Include iOS?
+  platform_web:
+    type: boolean
+    description: Include Web platform
+    default: true
+    prompt: Include Web?
+  platform_windows:
+    type: boolean
+    description: Include Windows platform
+    default: false
+    prompt: Include Windows?
+  platform_macos:
+    type: boolean
+    description: Include macOS platform
+    default: false
+    prompt: Include macOS?
+  platform_linux:
+    type: boolean
+    description: Include Linux platform
+    default: false
+    prompt: Include Linux?
+
+  # === Project Options (Step 2) ===
+  state_management:
+    type: enum
+    description: State management solution
+    default: none
+    values:
+      - none
+      - change_notifier
+      - provider
+      - riverpod
+      - bloc
+      - getx
+      - mobx
+      - signals
+    prompt: State management?
+  ui_toolkit:
+    type: enum
+    description: UI toolkit
+    default: material
+    values:
+      - material
+      - shadcn
+    prompt: UI toolkit?
+  network_client:
+    type: enum
+    description: Network/HTTP client
+    default: none
+    values:
+      - none
+      - http
+      - dio
+      - rhttp
+    prompt: Network client?
+  api_generation:
+    type: enum
+    description: OpenAPI code generation
+    default: none
+    values:
+      - none
+      - openapi
+    prompt: API generation?
+  openapi_generator:
+    type: enum
+    description: OpenAPI generator type (only used if api_generation=openapi)
+    default: dio
+    values:
+      - dart
+      - dio
+      - dio_alt
+    prompt: OpenAPI generator?
+  openapi_spec_url:
+    type: string
+    description: Remote URL to an OpenAPI spec (JSON/YAML)
+    default: ""
+    prompt: OpenAPI spec URL? (leave empty to skip)
+  local_storage:
+    type: enum
+    description: Local storage solution
+    default: none
+    values:
+      - none
+      - shared_preferences
+      - hive_ce
+      - isar_community
+      - drift
+    prompt: Local storage?
+  env_config:
+    type: enum
+    description: Environment variable support
+    default: none
+    values:
+      - none
+      - flutter_dotenv
+      - dotenv
+    prompt: Environment config?
+  dependency_injection:
+    type: enum
+    description: Dependency injection (hidden if Provider/Riverpod/GetX selected)
+    default: none
+    values:
+      - none
+      - get_it
+      - injectable
+    prompt: Dependency injection?
+  logging:
+    type: enum
+    description: Logging solution
+    default: none
+    values:
+      - none
+      - logging
+      - logger
+    prompt: Logging?
+  attach_logger_to_http:
+    type: boolean
+    description: Attach logger to HTTP client (only valid if both network and logging selected)
+    default: false
+    prompt: Attach logger to HTTP client?
+  db_debugger:
+    type: enum
+    description: Database debugger
+    default: none
+    values:
+      - none
+      - drift_db_viewer
+    prompt: DB debugger?
+  linting:
+    type: enum
+    description: Lint rules
+    default: flutter_lints
+    values:
+      - flutter_lints
+      - very_good_analysis
+    prompt: Linting?
